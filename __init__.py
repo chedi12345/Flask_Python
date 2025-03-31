@@ -3,14 +3,11 @@ from flask import render_template
 from flask import json                                                                                                                                     
 app = Flask(__name__)                                                                                                                  
 
-
 @app.route('/<int:valeur>')
 def carre_etoiles(n):
+    n = int(input("Entrez le nombre d'etoiles : "))
     for i in range(n):
-        print('*' * n)
-
-# Exemple d'utilisation
-n = int(input("Entrez la taille du carré : "))
+        print('*', n)
 carre_etoiles(n)
 
 
