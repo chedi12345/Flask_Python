@@ -12,6 +12,7 @@ def exercice(valeur):
             etoiles += '*'
         etoiles += '<br>'
     return etoiles
+    
 if __name__ == "__main__":
   app.run(debug=True)
 
