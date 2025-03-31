@@ -4,11 +4,11 @@ from flask import json
 app = Flask(__name__)                                                                                                                  
 
 @app.route('/<int:valeur>')
-def carre_etoiles(n):
+def carre_etoiles(5):
     n = int(input("Entrez le nombre d'etoiles : "))
-    for i in range(n):
-        print('*', n)
-carre_etoiles(n)
+    for i in range(5):
+        print('*', 5)
+carre_etoiles(5)
 
 
 if __name__ == "__main__":
