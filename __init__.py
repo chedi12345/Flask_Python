@@ -5,12 +5,13 @@ app = Flask(__name__)
 
 
 @app.route('/<int:valeur>')
-def exercice():
-    etoiles = int(input("donner un nombre d'etoiles"))
-    for i in range (etoiles):
-        for j in range(etoiles):
-            etoiles += '*'
-        return etoiles
+def carre_etoiles(n):
+    for i in range(n):
+        print('*' * n)
+
+# Exemple d'utilisation
+n = int(input("Entrez la taille du carré : "))
+carre_etoiles(n)
 
 
 if __name__ == "__main__":
