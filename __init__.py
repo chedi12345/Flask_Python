@@ -14,6 +14,6 @@ def pyramide(valeur):
         ligne = espaces + gauche + droite
         lignes.append(ligne)
     
-    return render_template("pyramide.html", lignes=lignes, valeur=valeur) 
+    return render_template(lignes=lignes, valeur=valeur) 
 if name == "main":
     app.run(debug=True)
