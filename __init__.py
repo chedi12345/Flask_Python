@@ -3,14 +3,13 @@ from flask import render_template
 from flask import json                                                                                                                                     
 app = Flask(__name__)                                                                                                                  
 
-etoiles = ''
-    for j in range(valeur):
-        for i in range(valeur-j):
-            etoiles += '+'   
-        for k in range(j+1):
-            etoiles += '*'
-        etoiles += '<br>'
-    return etoiles
+n=int(input("donner le nombre de base de pyramid"))
+k=""
+for i in range (1,n+1):
+    k=k+str(i)
+    l=""
+    for j in range(0,len(k-1),-1):
+        l=l+str(j)
     
 if __name__ == "__main__":
   app.run(debug=True)
