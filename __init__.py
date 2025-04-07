@@ -1,15 +1,28 @@
-from flask import Flask
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route('/<path:valeurs>')
-def exercice(valeurs):
-    liste_nombres = valeurs.split('/')
-    liste_nombres = [int(n) for n in liste_nombres]
-    resultat = 0
-    for n in liste_nombres:
-        resultat = resultat + n
-    return str(resultat)
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        try:
+            valeurs = request.form['nombres']
+            liste = [int(x) for x in valeurs.split()]
+            
+            # Trouver le max sans utiliser max()
+            valeur_max = liste[0]
+            for nombre in liste[1:]:
+                if nombre > valeur_max:
+                    valeur_max = nombre
+
+            return render_template('result.html', max_val=valeur_max, liste=liste)
+
+        except ValueError:
+            erreur = "Erreur : Veuillez entrer uniquement des nombres séparés par des espaces."
+            return render_template('index.html', erreur=erreur)
+
+    return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(debug=True)
+
