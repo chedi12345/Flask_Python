@@ -6,7 +6,7 @@ app = Flask(__name__)
 def calcul_somme_securise(n):
     somme = 0
     nombres_ajoutes = []
-    
+     
     for nombre in range(1, n + 1):
         if nombre % 11 == 0:
             continue
